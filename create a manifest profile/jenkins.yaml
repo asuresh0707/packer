@@ -1,0 +1,13 @@
+---
+  - name: install jenkins
+    hosts: all
+    become: yes
+    roles:
+      - geerlingguy.jenkins
+      - geerlingguy.ansible
+      - geerlingguy.ansible-role-packer
+    vars:
+      ssh_use_pam: true
+      jenkins_hostname: localhost
+      ansible_remote_tmp: /tmp/ansible
+      jenkins_plugins: [ansicolor]
